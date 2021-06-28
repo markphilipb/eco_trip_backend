@@ -12,6 +12,13 @@ const port = process.env.PORT || 8082;
 
 const { Client } = require("@googlemaps/google-maps-services-js");
 
+
+/**
+ * @param  {string} origin
+ * @param  {string} destination
+ * @param  {} res
+ * getDirections will take origin and destination and respond with directions data from mapbox directions api call
+ */
 const getDirections = (origin, destination, res) => {
   var newOrigin = origin.split(" ").join("+");
   var newDest = destination.split(" ").join("+");
@@ -34,6 +41,15 @@ const getDirections = (origin, destination, res) => {
     });
 };
 
+
+/**
+ * @param  {string} origin
+ * @param  {} res
+ *
+ * getOriginGeocode takes the address as a string and makes an call to 
+ * mapbox geocode api for long and lat coordinates of that location.
+ * The response long and lat coords will be passed as origin to {@link getDirections}
+ */
 const getOriginGeocode = async (origin, res) => {
   var newOrigin = origin.split("+").join("%20");
   var urlreq =
@@ -58,6 +74,15 @@ const getOriginGeocode = async (origin, res) => {
   return ret;
 };
 
+
+/**
+ * @param  {string} dest
+ * @param  {} res
+ *
+ * getDestGeocode takes the address as a string and makes an call to 
+ * mapbox geocode api for long and lat coordinates of that location.
+ * The response long and lat coords will be passed as origin to {@link getDirections}
+ */
 const getDestGeocode = async (dest, res) => {
   var newDest = dest.split("+").join("%20");
   var urlreq =
@@ -83,6 +108,14 @@ const getDestGeocode = async (dest, res) => {
   return ret;
 };
 
+
+/**
+ * @param  {string} origin
+ * @param  {string} dest
+ * @param  {} res
+ * 
+ * getMapDirections returns the directions object from mapbox directions api
+ */
 const getMapDirections = async (origin, dest, res) => {
   originCords = origin[0] + "," + origin[1];
   destCords = dest[0] + "," + dest[1];
