@@ -23,7 +23,6 @@ const getDirections = (origin, destination, res) => {
   var newOrigin = origin.split(" ").join("+");
   var newDest = destination.split(" ").join("+");
   const client = new Client();
-  //      destination: { lat: 41.43206, lng: -81.38992 }, "24+Sussex+Drive+Ottawa+ON"
   client
     .directions({
       params: {
@@ -63,9 +62,7 @@ const getOriginGeocode = async (origin, res) => {
     .get(urlreq)
     .then(function (response) {
       var resp = response.data;
-      //console.log(resp);
       ret = resp;
-      // res.send(resp);
     })
     .catch(function (error) {
       console.log(error);
@@ -97,9 +94,7 @@ const getDestGeocode = async (dest, res) => {
     .get(urlreq)
     .then(function (response) {
       var resp = response.data;
-      //console.log(resp);
       ret = resp;
-      // res.send(resp);
     })
     .catch(function (error) {
       console.log(error);
@@ -131,9 +126,7 @@ const getMapDirections = async (origin, dest, res) => {
     .get(urlreq)
     .then(function (response) {
       var resp = response;
-      //console.log(resp);
       ret = resp;
-      //res.send(response);
     })
     .catch(function (error) {
       console.log(error);
