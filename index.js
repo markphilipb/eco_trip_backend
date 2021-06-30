@@ -62,9 +62,7 @@ const getOriginGeocode = async (origin, res) => {
     .get(urlreq)
     .then(function (response) {
       var resp = response.data;
-      //console.log(resp);
       ret = resp;
-      // res.send(resp);
     })
     .catch(function (error) {
       console.log(error);
