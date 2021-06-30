@@ -94,9 +94,7 @@ const getDestGeocode = async (dest, res) => {
     .get(urlreq)
     .then(function (response) {
       var resp = response.data;
-      //console.log(resp);
       ret = resp;
-      // res.send(resp);
     })
     .catch(function (error) {
       console.log(error);
@@ -128,9 +126,7 @@ const getMapDirections = async (origin, dest, res) => {
     .get(urlreq)
     .then(function (response) {
       var resp = response;
-      //console.log(resp);
       ret = resp;
-      //res.send(response);
     })
     .catch(function (error) {
       console.log(error);
