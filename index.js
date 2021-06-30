@@ -23,7 +23,6 @@ const getDirections = (origin, destination, res) => {
   var newOrigin = origin.split(" ").join("+");
   var newDest = destination.split(" ").join("+");
   const client = new Client();
-  //      destination: { lat: 41.43206, lng: -81.38992 }, "24+Sussex+Drive+Ottawa+ON"
   client
     .directions({
       params: {
